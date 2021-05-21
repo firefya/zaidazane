@@ -1,2 +1,0 @@
-# zaidazane
-my artist site
