@@ -2,57 +2,49 @@ import { gsap } from 'gsap';
 import * as THREE from 'three';
 
 document.addEventListener('DOMContentLoaded', () => {
-
-    // --- Three.js Scene Setup ---
     const scene = new THREE.Scene();
+
+    // Force a consistent FOV (Field of View) and Aspect Ratio
+    const FIXED_WIDTH = 998;
+    const FIXED_HEIGHT = 1378;
+    const FIXED_ASPECT = FIXED_WIDTH / FIXED_HEIGHT;
+
     const camera = new THREE.PerspectiveCamera(
-        26, window.innerWidth / window.innerHeight, 0.1, 1000
+        69, // Keep FOV constant
+        FIXED_ASPECT, // Lock aspect ratio
+        0.1, 1000
     );
 
-    // Set up canvas
     const canvas = document.getElementById('three-canvas');
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x000000, 0); // Ensure transparency
+    renderer.setSize(FIXED_WIDTH, FIXED_HEIGHT);
+    renderer.setClearColor(0x000000, 0);
 
-    // Load logo texture
     const textureLoader = new THREE.TextureLoader();
     const logoTexture = textureLoader.load(
-        'zz-logo.png', // Fallback to direct path
+        'https://firefya.github.io/zaidazane/zz-logo.png', // Absolute URL
         () => console.log("✅ Logo Loaded"),
         undefined,
         (err) => console.error("❌ Error loading logo:", err)
     );
 
-    // Create the rotating logo cube
     const logoGeometry = new THREE.BoxGeometry(3, 3, 3);
     const logoMaterial = new THREE.MeshBasicMaterial({ map: logoTexture });
     const logoCube = new THREE.Mesh(logoGeometry, logoMaterial);
     scene.add(logoCube);
 
-    // Normalize scaling for both environments
+    // 🔹 LOCK Camera & Logo Position Consistently
     function adjustCameraAndCube() {
-        const viewportWidth = window.innerWidth;
-        const viewportHeight = window.innerHeight;
-        const aspectRatio = viewportWidth / viewportHeight;
-        const DPR = window.devicePixelRatio;
-
-        console.log("Viewport:", viewportWidth, viewportHeight, "DPR:", DPR);
-
-        // Adjust camera distance dynamically based on resolution
-        const cameraDistance = Math.max(25, viewportWidth / 40);
-        const cubeX = viewportWidth > 900 ? 8 : 6; // Adjust for different screens
-        const cubeY = 6;
-        const cubeZ = -6;
-
-        camera.position.set(cameraDistance, cubeY, cameraDistance);
+        console.log("📸 Adjusting Camera & Logo for Fixed Environment");
+        
+        camera.position.set(-4, 20, 6); // Move back for consistent view
         camera.lookAt(0, 0, 0);
 
-        logoCube.position.set(cubeX, cubeY, cubeZ);
+        logoCube.position.set(13, 3, -5); // Ensure logo stays in view
+        console.log("🎯 Logo Cube Position:", logoCube.position);
     }
 
-    // Adjust camera & cube dynamically **AFTER** cube creation
     adjustCameraAndCube();
 
     function animate() {
@@ -63,14 +55,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     animate();
 
-    // Ensure proper resizing
+    // 🔹 Prevent Scaling Issues on Resize
     window.addEventListener('resize', () => {
-        adjustCameraAndCube();
-        camera.aspect = window.innerWidth / window.innerHeight;
+        console.log("🔄 Resizing Window - Maintaining Fixed Aspect Ratio");
+        camera.aspect = FIXED_ASPECT;
         camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setSize(FIXED_WIDTH, FIXED_HEIGHT);
     });
-
 });
 
 // --- GSAP Background and Menu Transitions ---

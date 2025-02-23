@@ -1,8 +1,5 @@
-/* style.css */
-
-html,
-
-body {
+/* 🔹 Force Consistent Resolution Across Environments */
+html, body {
   margin: 0;
   padding: 0;
   width: 998px !important;
@@ -11,7 +8,8 @@ body {
   font-family: monospace;
 }
 
-/* Video Overlay: covers the entire screen (currently commented out)
+/* 🎥 Video Overlay: covers the entire screen (currently commented out) */
+/* 
 #video-overlay {
   position: fixed;
   top: 0;
@@ -24,9 +22,8 @@ body {
   justify-content: center;
   z-index: 1000;
 }
-*/
 
-/* #intro-video {
+#intro-video {
   width: 80%;
   max-width: 800px;
 }
@@ -41,9 +38,10 @@ body {
   color: white;
   font-size: 2rem;
   cursor: pointer;
-} */
+}
+*/
 
-/* Background Container: behind everything */
+/* 🏞️ Background Container */
 #bg-container {
   position: fixed;
   top: 0;
@@ -54,39 +52,47 @@ body {
   background-position: center;
   z-index: 0;
   pointer-events: none;
-  background-image: url('Still-01.png');  /* Default background */
+  background-image: url('Still-01.png'); /* Default background */
 }
 
-/* Navigation Menu: top left */
+/* 🔹 Navigation Menu: LOCKED in the Top-Right */
 #menu {
   position: absolute;
-  top: 350px;
-  left: 20px;
-  z-index: 10;
+  top: 350px; /* Adjusted for better visibility */
+  left: 40px; /* Ensures consistency across all screen sizes */
+  z-index: 100; /* Ensures it stays above everything */
   pointer-events: auto;
+  width: auto;
 }
 
 #menu ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: block;
-  width: 60px;
+  display:contents;
+  width: auto;
   gap: 30px;
 }
 
 #menu li {
-  padding: 8px 12px;
-  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 15px;
+  background: none;
   color: white;
   cursor: pointer;
   border-radius: 4px;
-  font-size: 40px;
+  font-size: 30px; /* Increased size for better readability */
   font-family: Calibri, sans-serif;
-  font-style: normal;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
-/* Text Overlay: centered */
+/* Hover effect for better UI feedback */
+#menu li:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+/* 📝 Text Overlay: Centered */
 #text-overlay {
   position: absolute;
   top: 50%;
@@ -102,22 +108,23 @@ body {
   pointer-events: auto;
 }
 
-/* Three.js Canvas: placed above background but below UI */
+/* 🔹 Three.js Canvas: LOCKED in the Top-Right */
 #three-canvas {
   position: absolute;
-  top: 8;
-  right: 16;
-  width: 50vw; /* Full viewport width */
-  height: 50vh; /* Full viewport height */
-  z-index: 9; /* Ensures it's behind UI elements */
-  pointer-events: none; /* Allows interactions with UI */
+  top: 0;
+  right: 0;
+  width: 40vw; /* Adjusted for better placement */
+  height: 40vh; /* Adjusted to avoid blocking menu */
+  z-index: 5; /* Ensures it's behind UI elements */
+  pointer-events: none; /* Prevents blocking clicks */
 }
+
+/* 🔹 Top-Right UI Element */
 .topright {
   position: absolute;
-  top: 8px;
-  right: 16px;
+  top: 16px;
+  right: 20px;
   font-size: 18px;
-  padding: 0px;
+  padding: 5px;
+  z-index: 100; /* Ensures it stays above Three.js */
 }
-/* Position UI elements above the Three.js canvas */
-
