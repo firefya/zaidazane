@@ -1,7 +1,7 @@
 // main.js
 import { gsap } from 'gsap';
 import * as THREE from 'three';
-import './style.css';
+// import './style.css'; // Removed CSS import
 
 document.addEventListener('DOMContentLoaded', () => {
   // --- Video Overlay Logic ---
@@ -26,9 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
-
-  //Ensure cube is clickable
-  
 
   // Ensure canvas is transparent.
   renderer.setClearColor(0x000000, 0);

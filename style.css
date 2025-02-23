@@ -1,5 +1,7 @@
 /* style.css */
-html, body {
+
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -8,7 +10,7 @@ html, body {
   font-family: sans-serif;
 }
 
-/* Video Overlay: covers the entire screen */
+/* Video Overlay: covers the entire screen (currently commented out)
 #video-overlay {
   position: fixed;
   top: 0;
@@ -21,6 +23,7 @@ html, body {
   justify-content: center;
   z-index: 1000;
 }
+*/
 
 #intro-video {
   width: 80%;
