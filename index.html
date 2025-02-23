@@ -4,8 +4,13 @@
     <meta charset="UTF-8" />
     <title>Your Site Title</title>
     <link rel="stylesheet" href="style.css" />
-    <!-- GSAP from CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "gsap": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+        }
+      }
+      </script>
   </head>
   <body>
     <!-- Video Overlay (auto-plays on first load) -->
