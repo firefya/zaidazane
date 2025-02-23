@@ -26,6 +26,34 @@ document.addEventListener('DOMContentLoaded', () => {
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
+
+  //Ensure cube is clickable
+  // ... after creating and adding logoCube to the camera/scene
+
+// Create raycaster and mouse vector
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+
+// Attach click event to the canvas
+canvas.addEventListener('click', onClick, false);
+
+function onClick(event) {
+  // Convert mouse coordinates to normalized device coordinates (-1 to +1)
+  mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+  mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+
+  // Update raycaster with camera and mouse position
+  raycaster.setFromCamera(mouse, camera);
+
+  // Check for intersection with logoCube
+  const intersects = raycaster.intersectObject(logoCube);
+  if (intersects.length > 0) {
+    // Cube was clicked - navigate to home page
+    window.location.href = "http://localhost:3000/"; // Replace with your desired URL
+  }
+}
+
+
   // Ensure canvas is transparent.
   renderer.setClearColor(0x000000, 0);
   renderer.render(scene, camera);
