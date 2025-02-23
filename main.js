@@ -64,6 +64,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Load Texture for the Sphere
+const sphereTexture = new THREE.TextureLoader().load("path-to-your-texture.jpg");
+
+// Create Sphere Geometry
+const sphereGeometry = new THREE.SphereGeometry(3, 64, 64); // Radius: 3, Segments: 64 for smoothness
+const sphereMaterial = new THREE.MeshBasicMaterial({ map: sphereTexture });
+
+// Create Sphere Mesh
+const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+scene.add(sphere);
+
+// Position the Sphere
+sphere.position.set(10, 5, -5); // Adjust X, Y, Z position as needed
+
+// Animate Sphere Rotation (Optional)
+function animate() {
+    requestAnimationFrame(animate);
+    sphere.rotation.y += 0.01; // Rotate slowly
+    renderer.render(scene, camera);
+}
+
+animate();
+
+//Sphere animation
+
+
+
+
 // --- GSAP Background and Menu Transitions ---
 const backgrounds = {
     HOME: 'Still-03.png',

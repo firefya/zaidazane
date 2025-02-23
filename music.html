@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Your Site Title</title>
+    <link rel="stylesheet" href="musicstyle.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "gsap": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js",
+          "three": "https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.module.js"
+        }
+      }
+    </script>
+  </head>
+<body>
+    
+    <div class="container">
+        <canvas id="three-canvas"></canvas>
+    </div>
+    <!-- 🏞️ Background -->
+    <!-- DOM Background Container -->
+    <div id="bg-container"></div>
+
+    <!-- Navigation Menu -->
+    <nav id="menu">
+      <ul>
+        <li><a href="music.html">MUSIC</a></li>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="dates.html">DATES</a></li>
+        <li><a href="blog.html">BLOG</a></li>
+        <li><a href="booking.html">BOOKING</a></li>
+      </ul>
+    </nav>
+
+    <!-- 🎵 Music Section -->
+    <section id="music-content">
+        <h1>Listen to My Music</h1>
+                <!-- 📀 Additional Music Links -->
+                <div class="music-links">
+                    <p>Find my music on:</p>
+                    <a href="https://zaida-zane.bandcamp.com/" target="_blank">bandcamp</a>
+                    <a href="https://soundcloud.com/zaida-zane" target="_blank">🎧 SoundCloud</a>
+                    <a href="https://spotify.com" target="_blank">🎵 Spotify</a>
+                    <a href="https://apple.com/music" target="_blank">🍏 Apple Music</a>
+                </div>
+
+        <!-- 🎧 Embedded Music Player -->
+        <iframe src="https://ffm.to/ns043" width="20%" height="600px" frameborder="0" allowfullscreen></iframe>
+    </section>
+        <!-- Main JavaScript -->
+        <script type="module" src="main.js"></script>
+</body>
+</html>

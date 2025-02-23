@@ -7,6 +7,16 @@ html, body {
   overflow: hidden;
   font-family: monospace;
 }
+a {
+  color: white !important;
+  text-decoration: none; /* Removes underline */
+}
+
+/* 🔹 Change hover color for better visibility */
+a:hover {
+  color: rgba(255, 255, 255, 0.7) !important;
+  text-decoration: underline;
+}
 
 /* 🎥 Video Overlay (Currently Commented Out) */
 /*
@@ -50,9 +60,9 @@ html, body {
   height: 100%;
   background-size: cover;
   background-position: center;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
-  background-image: url('Still-01.png'); /* Default background */
+  background-image: url('Still-03.png'); /* Default background */
 }
 
 /* 🔹 Navigation Menu: LOCKED in the Middle Left */
@@ -93,21 +103,6 @@ html, body {
   transform: scale(1.1);
 }
 
-/* 📝 Text Overlay: Centered */
-#text-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  padding: 20px;
-  border-radius: 8px;
-  max-width: 80%;
-  text-align: left;
-  pointer-events: auto;
-}
 
 /* 🔹 Three.js Canvas: LOCKED in the Top-Right */
 #three-canvas {
@@ -116,9 +111,37 @@ html, body {
   right: 0;
   width: 40vw; /* Adjusted to ensure it's visible but doesn't block UI */
   height: 40vh;
-  z-index: 5; /* Keeps it behind the menu */
+  z-index: 1; /* Keeps it behind the menu */
   pointer-events: none;
 }
+#text-overlay {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers it perfectly */
+  z-index: 10;
+  text-align: center;
+  color: white; /* Ensures text is visible */
+  font-size: 16px; /* Adjust size as needed */
+  font-family: "Arial", sans-serif; /* Use any preferred font */
+  background: none !important; /* Removes any background */
+  padding: 0; /* Removes extra spacing */
+  border: none; /* Ensures no border */
+  box-shadow: none; /* Prevents unwanted shadows */
+}
+/* 🔹 Keep the Heading Centered */
+#text-overlay h1 {
+  text-align: right;
+  font-size: 30px; /* Makes heading larger */
+  margin-bottom: 20px;
+}
+/* 🔹 Ensure Paragraphs Stay Left-Aligned */
+#text-overlay p {
+  text-align: justify;
+  font-size: 16px; /* Makes text larger for better readability */
+  line-height: 1.6; /* Adds spacing for readability */
+}
+
 
 /* 🔹 Top-Right UI Element (Ensures Other UI Elements Stay Above Canvas) */
 .topright {
