@@ -1,19 +1,19 @@
 // main.js
 import { gsap } from 'gsap';
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.module.js';
+import * as THREE from 'three';
 import './style.css';
 
 document.addEventListener('DOMContentLoaded', () => {
   // --- Video Overlay Logic ---
-  const videoOverlay = document.getElementById('video-overlay');
-  const closeVideoButton = document.getElementById('close-video');
-  const introVideo = document.getElementById('intro-video');
+  // const videoOverlay = document.getElementById('video-overlay');
+  // const closeVideoButton = document.getElementById('close-video');
+  // const introVideo = document.getElementById('intro-video');
 
-  closeVideoButton.addEventListener('click', () => {
-    introVideo.pause();
-    // Remove the overlay element from the DOM entirely.
-    videoOverlay.remove();
-  });
+  // closeVideoButton.addEventListener('click', () => {
+  //   introVideo.pause();
+  //   // Remove the overlay element from the DOM entirely.
+  //   videoOverlay.remove();
+  // });
 
   // --- Three.js Rotating Logo Cube ---
   const scene = new THREE.Scene();
