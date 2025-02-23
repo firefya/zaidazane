@@ -5,8 +5,8 @@ html,
 body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
+  width: 998px !important;
+  height: 1378px !important;
   overflow: hidden;
   font-family: monospace;
 }
@@ -67,7 +67,7 @@ body {
 }
 
 #menu ul {
-  
+  list-style: none;
   margin: 0;
   padding: 0;
   display: block;
@@ -109,7 +109,7 @@ body {
   right: 16;
   width: 50vw; /* Full viewport width */
   height: 50vh; /* Full viewport height */
-  z-index: 5; /* Ensures it's behind UI elements */
+  z-index: 9; /* Ensures it's behind UI elements */
   pointer-events: none; /* Allows interactions with UI */
 }
 .topright {
