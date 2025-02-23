@@ -36,7 +36,7 @@ renderer.setClearColor(0x000000, 0); // Ensure transparent background
 
 // Load logo texture
 const textureLoader = new THREE.TextureLoader();
-const logoTexture = textureLoader.load('zz-logo.png');
+const logoTexture = textureLoader.load('/zz-logo.png');
 
 // Create the rotating logo cube
 const logoGeometry = new THREE.BoxGeometry(3, 3, 3);
