@@ -1,13 +1,14 @@
 /* style.css */
 
 html,
+
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  font-family: sans-serif;
+  font-family: monospace;
 }
 
 /* Video Overlay: covers the entire screen (currently commented out)
@@ -25,7 +26,7 @@ body {
 }
 */
 
-#intro-video {
+/* #intro-video {
   width: 80%;
   max-width: 800px;
 }
@@ -40,7 +41,7 @@ body {
   color: white;
   font-size: 2rem;
   cursor: pointer;
-}
+} */
 
 /* Background Container: behind everything */
 #bg-container {
@@ -59,18 +60,19 @@ body {
 /* Navigation Menu: top left */
 #menu {
   position: absolute;
-  top: 20px;
+  top: 350px;
   left: 20px;
   z-index: 10;
   pointer-events: auto;
 }
 
 #menu ul {
-  list-style: none;
+  
   margin: 0;
   padding: 0;
-  display: flex;
-  gap: 10px;
+  display: block;
+  width: 60px;
+  gap: 30px;
 }
 
 #menu li {
@@ -79,6 +81,9 @@ body {
   color: white;
   cursor: pointer;
   border-radius: 4px;
+  font-size: 40px;
+  font-family: Calibri, sans-serif;
+  font-style: normal;
 }
 
 /* Text Overlay: centered */
@@ -93,15 +98,26 @@ body {
   padding: 20px;
   border-radius: 8px;
   max-width: 80%;
-  text-align: center;
+  text-align: left;
   pointer-events: auto;
 }
 
 /* Three.js Canvas: placed above background but below UI */
 #three-canvas {
   position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 5;
-  pointer-events: none;
+  top: 8;
+  right: 16;
+  width: 50vw; /* Full viewport width */
+  height: 50vh; /* Full viewport height */
+  z-index: 5; /* Ensures it's behind UI elements */
+  pointer-events: none; /* Allows interactions with UI */
 }
+.topright {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+  padding: 0px;
+}
+/* Position UI elements above the Three.js canvas */
+

@@ -7,13 +7,18 @@
     <script type="importmap">
       {
         "imports": {
-          "gsap": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+          "gsap": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js",
+          "three": "https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.module.js"
         }
       }
-      </script>
+    </script>
   </head>
   <body>
+    <div class="container">
+      <canvas id="three-canvas"></canvas>
+  </div>
     <!-- Video Overlay (auto-plays on first load) -->
+    <!-- 
     <div id="video-overlay">
       <button id="close-video">X</button>
       <video id="intro-video" autoplay muted playsinline>
@@ -21,6 +26,7 @@
         Your browser does not support the video tag.
       </video>
     </div>
+    -->
 
     <!-- DOM Background Container -->
     <div id="bg-container"></div>
@@ -42,7 +48,10 @@
     </div>
 
     <!-- Three.js Canvas for the Rotating Logo -->
-    <canvas id="three-canvas"></canvas>
+   <div>
+    <canvas id="three-canvas" div class="topright"></canvas>
+  </div>
+    
 
     <!-- Main JavaScript -->
     <script type="module" src="main.js"></script>

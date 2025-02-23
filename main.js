@@ -18,46 +18,49 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   */
 
-  // --- Three.js Rotating Logo Cube ---
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(
-    75, window.innerWidth / window.innerHeight, 0.1, 1000
-  );
-  camera.position.set(0, 0, 30);
+// --- Three.js Rotating Logo Cube ---
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(
+    65, window.innerWidth / window.innerHeight, 0.1, 1000
+);
 
-  const canvas = document.getElementById('three-canvas');
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
-  renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setSize(window.innerWidth, window.innerHeight);
+// Adjust camera to properly view the cube from the top-left perspective
+camera.position.set(10, 8, 16);
+camera.lookAt(0, 0, 0);
 
-  // Ensure canvas is transparent.
-  renderer.setClearColor(0x000000, 0);
+const canvas = document.getElementById('three-canvas');
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setClearColor(0x000000, 0); // Ensure transparent background
+
+// Load logo texture
+const textureLoader = new THREE.TextureLoader();
+const logoTexture = textureLoader.load('zz-logo.png');
+
+// Create the rotating logo cube
+const logoGeometry = new THREE.BoxGeometry(3, 3, 3);
+const logoMaterial = new THREE.MeshBasicMaterial({ map: logoTexture });
+const logoCube = new THREE.Mesh(logoGeometry, logoMaterial);
+
+// Position cube towards top-left, adjusting for visibility
+logoCube.position.set(10, 8, 0);
+scene.add(logoCube);
+
+function animate() {
+  requestAnimationFrame(animate);
+  logoCube.rotation.x += 0.01;
+  logoCube.rotation.y += 0.01;
   renderer.render(scene, camera);
+}
+animate();
 
-  const textureLoader = new THREE.TextureLoader();
-  const logoTexture = textureLoader.load('zz-logo.png');
-  const logoGeometry = new THREE.BoxGeometry(3, 3, 3);
-  const logoMaterial = new THREE.MeshBasicMaterial({ map: logoTexture });
-  const logoCube = new THREE.Mesh(logoGeometry, logoMaterial);
-
-  // Attach the logo cube to the camera to keep it fixed relative to the viewport.
-  logoCube.position.set(0, 8, -15);
-  camera.add(logoCube);
-  scene.add(camera);
-
-  function animate() {
-    requestAnimationFrame(animate);
-    logoCube.rotation.x += 0.01;
-    logoCube.rotation.y += 0.01;
-    renderer.render(scene, camera);
-  }
-  animate();
-
-  window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-  });
+// Ensure proper resizing
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
 
   // --- DOM Background and Menu Transitions with GSAP ---
   const backgrounds = {
