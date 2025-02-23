@@ -1,15 +1,15 @@
-/* 🔹 Force Consistent Resolution Across Environments */
+/* 🔹 Force Scaling to Stay the Same Across Dev & Production */
 html, body {
   margin: 0;
   padding: 0;
-  width: 998px !important;
-  height: 1378px !important;
+  width: 100vw !important; /* Matches the full viewport width */
+  height: 100vh !important; /* Matches the full viewport height */
   overflow: hidden;
   font-family: monospace;
 }
 
-/* 🎥 Video Overlay: covers the entire screen (currently commented out) */
-/* 
+/* 🎥 Video Overlay (Currently Commented Out) */
+/*
 #video-overlay {
   position: fixed;
   top: 0;
@@ -55,12 +55,13 @@ html, body {
   background-image: url('Still-01.png'); /* Default background */
 }
 
-/* 🔹 Navigation Menu: LOCKED in the Top-Right */
+/* 🔹 Navigation Menu: LOCKED in the Middle Left */
 #menu {
-  position: absolute;
-  top: 350px; /* Adjusted for better visibility */
-  left: 40px; /* Ensures consistency across all screen sizes */
-  z-index: 100; /* Ensures it stays above everything */
+  position: fixed; /* Ensures it stays in the same place across all resolutions */
+  top: 50%; /* Center vertically */
+  left: 40px; /* Locked to left side */
+  transform: translateY(-50%); /* Ensures it's always centered vertically */
+  z-index: 100;
   pointer-events: auto;
   width: auto;
 }
@@ -69,9 +70,9 @@ html, body {
   list-style: none;
   margin: 0;
   padding: 0;
-  display:contents;
-  width: auto;
-  gap: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 #menu li {
@@ -79,14 +80,14 @@ html, body {
   background: none;
   color: white;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 30px; /* Increased size for better readability */
   font-family: Calibri, sans-serif;
   font-weight: bold;
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-/* Hover effect for better UI feedback */
+/* 🔹 Hover effect for better UI feedback */
 #menu li:hover {
   background: rgba(255, 255, 255, 0.3);
   transform: scale(1.1);
@@ -113,13 +114,13 @@ html, body {
   position: absolute;
   top: 0;
   right: 0;
-  width: 40vw; /* Adjusted for better placement */
-  height: 40vh; /* Adjusted to avoid blocking menu */
-  z-index: 5; /* Ensures it's behind UI elements */
-  pointer-events: none; /* Prevents blocking clicks */
+  width: 40vw; /* Adjusted to ensure it's visible but doesn't block UI */
+  height: 40vh;
+  z-index: 5; /* Keeps it behind the menu */
+  pointer-events: none;
 }
 
-/* 🔹 Top-Right UI Element */
+/* 🔹 Top-Right UI Element (Ensures Other UI Elements Stay Above Canvas) */
 .topright {
   position: absolute;
   top: 16px;
