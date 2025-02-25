@@ -67,10 +67,10 @@ html, body {
   
   /* 🔹 Navigation Menu: LOCKED in the Middle Left */
   #menu {
-    position: fixed; /* Ensures it stays in the same place across all resolutions */
-    top: 50%; /* Center vertically */
-    left: 40px; /* Locked to left side */
-    transform: translateY(-50%); /* Ensures it's always centered vertically */
+    position: fixed;
+    top: 50%; /* Should center vertically */
+    left: 40px;
+    transform: translateY(-50%);
     z-index: 100;
     pointer-events: auto;
     width: auto;
