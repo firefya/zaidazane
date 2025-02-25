@@ -2,7 +2,6 @@
 // Import GSAP and Three.js from CDNs that support ES modules.
 import { gsap } from 'https://cdn.skypack.dev/gsap';
 import * as THREE from 'https://unpkg.com/three@0.150.1/build/three.module.js';
-import './style.css';
 
 document.addEventListener('DOMContentLoaded', () => {
   // ---------------------
