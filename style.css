@@ -1,4 +1,4 @@
-/* Force Scaling to Stay the Same Across Dev & Production */
+/* 🔹 Force Scaling to Stay the Same Across Dev & Production */
 html, body {
   margin: 0;
   padding: 0;
@@ -18,18 +18,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* 🎥 Background Video: Always fill the viewport */
-#background-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover; /* Ensures the video covers the container */
-  z-index: -2;
-}
-
-/* 🏞️ Background Container (Fallback or additional background) */
+/* 🏞️ Background Container */
 #bg-container {
   position: fixed;
   top: 0;
@@ -40,9 +29,21 @@ a:hover {
   background-position: center;
   z-index: -1;
   pointer-events: none;
+  background-image: url('Still-02.png');
 }
 
-/* 🔹 Navigation Menu: Locked on the Middle Left */
+/* 🎥 Background Video */
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -2;
+}
+
+/* 🔹 Navigation Menu: LOCKED in the Middle Left */
 #menu {
   position: fixed;
   top: 50%;
@@ -51,7 +52,6 @@ a:hover {
   z-index: 100;
   pointer-events: auto;
   width: auto;
-  /* Consider using responsive font sizing if needed */
 }
 
 #menu ul {
@@ -69,7 +69,7 @@ a:hover {
   color: white;
   cursor: pointer;
   border-radius: 6px;
-  font-size: 2vw; /* Use viewport units for responsive sizing */
+  font-size: 30px;
   font-family: Calibri, sans-serif;
   font-weight: bold;
   transition: background 0.3s ease, transform 0.2s ease;
@@ -80,7 +80,23 @@ a:hover {
   transform: scale(1.1);
 }
 
-/* 🔹 Three.js Canvas: Locked in the Top-Right */
+/* 📝 Text Overlay: Centered */
+#text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 80%;
+  text-align: left;
+  pointer-events: auto;
+}
+
+/* 🔹 Three.js Canvas: LOCKED in the Top-Right */
 #three-canvas {
   position: absolute;
   top: 0;
@@ -91,41 +107,12 @@ a:hover {
   pointer-events: none;
 }
 
-/* 🔹 Text Overlay: Centered and Responsive */
-#text-overlay {
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  text-align: center;
-  color: white;
-  font-size: 1.2vw; /* Adjust using viewport units */
-  font-family: "Arial", sans-serif;
-  background: none !important;
-  padding: 0;
-  border: none;
-  box-shadow: none;
-}
-
-#text-overlay h1 {
-  text-align: right;
-  font-size: 2vw;
-  margin-bottom: 20px;
-}
-
-#text-overlay p {
-  text-align: justify;
-  font-size: 1vw;
-  line-height: 1.6;
-}
-
 /* 🔹 Top-Right UI Element */
 .topright {
   position: absolute;
   top: 16px;
   right: 20px;
-  font-size: 1.2vw;
+  font-size: 18px;
   padding: 5px;
   z-index: 100;
 }
