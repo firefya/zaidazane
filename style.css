@@ -1,57 +1,35 @@
-/* 🔹 Force Scaling to Stay the Same Across Dev & Production */
+/* Force Scaling to Stay the Same Across Dev & Production */
 html, body {
   margin: 0;
   padding: 0;
-  width: 100vw !important; /* Matches the full viewport width */
-  height: 100vh !important; /* Matches the full viewport height */
+  width: 100vw !important;
+  height: 100vh !important;
   overflow: hidden;
   font-family: monospace;
 }
+
 a {
   color: white !important;
-  text-decoration: none; /* Removes underline */
+  text-decoration: none;
 }
 
-/* 🔹 Change hover color for better visibility */
 a:hover {
   color: rgba(255, 255, 255, 0.7) !important;
   text-decoration: underline;
 }
 
-/* 🎥 Video Overlay (Currently Commented Out) */
-/*
-#video-overlay {
+/* 🎥 Background Video: Always fill the viewport */
+#background-video {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover; /* Ensures the video covers the container */
+  z-index: -2;
 }
 
-#intro-video {
-  width: 80%;
-  max-width: 800px;
-}
-
-#close-video {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 1001;
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-}
-*/
-
-/* 🏞️ Background Container */
+/* 🏞️ Background Container (Fallback or additional background) */
 #bg-container {
   position: fixed;
   top: 0;
@@ -62,18 +40,18 @@ a:hover {
   background-position: center;
   z-index: -1;
   pointer-events: none;
-  background-image: url('Still-03.png'); /* Default background */
 }
 
-/* 🔹 Navigation Menu: LOCKED in the Middle Left */
+/* 🔹 Navigation Menu: Locked on the Middle Left */
 #menu {
-  position: fixed; /* Ensures it stays in the same place across all resolutions */
-  top: 50%; /* Center vertically */
-  left: 40px; /* Locked to left side */
-  transform: translateY(-50%); /* Ensures it's always centered vertically */
+  position: fixed;
+  top: 50%;
+  left: 40px;
+  transform: translateY(-50%);
   z-index: 100;
   pointer-events: auto;
   width: auto;
+  /* Consider using responsive font sizing if needed */
 }
 
 #menu ul {
@@ -91,64 +69,63 @@ a:hover {
   color: white;
   cursor: pointer;
   border-radius: 6px;
-  font-size: 30px; /* Increased size for better readability */
+  font-size: 2vw; /* Use viewport units for responsive sizing */
   font-family: Calibri, sans-serif;
   font-weight: bold;
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-/* 🔹 Hover effect for better UI feedback */
 #menu li:hover {
   background: rgba(255, 255, 255, 0.3);
   transform: scale(1.1);
 }
 
-
-/* 🔹 Three.js Canvas: LOCKED in the Top-Right */
+/* 🔹 Three.js Canvas: Locked in the Top-Right */
 #three-canvas {
   position: absolute;
   top: 0;
   right: 0;
-  width: 40vw; /* Adjusted to ensure it's visible but doesn't block UI */
+  width: 40vw;
   height: 40vh;
-  z-index: 1; /* Keeps it behind the menu */
+  z-index: 1;
   pointer-events: none;
 }
+
+/* 🔹 Text Overlay: Centered and Responsive */
 #text-overlay {
   position: absolute;
   top: 70%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Centers it perfectly */
+  transform: translate(-50%, -50%);
   z-index: 10;
   text-align: center;
-  color: white; /* Ensures text is visible */
-  font-size: 16px; /* Adjust size as needed */
-  font-family: "Arial", sans-serif; /* Use any preferred font */
-  background: none !important; /* Removes any background */
-  padding: 0; /* Removes extra spacing */
-  border: none; /* Ensures no border */
-  box-shadow: none; /* Prevents unwanted shadows */
+  color: white;
+  font-size: 1.2vw; /* Adjust using viewport units */
+  font-family: "Arial", sans-serif;
+  background: none !important;
+  padding: 0;
+  border: none;
+  box-shadow: none;
 }
-/* 🔹 Keep the Heading Centered */
+
 #text-overlay h1 {
   text-align: right;
-  font-size: 30px; /* Makes heading larger */
+  font-size: 2vw;
   margin-bottom: 20px;
 }
-/* 🔹 Ensure Paragraphs Stay Left-Aligned */
+
 #text-overlay p {
   text-align: justify;
-  font-size: 16px; /* Makes text larger for better readability */
-  line-height: 1.6; /* Adds spacing for readability */
+  font-size: 1vw;
+  line-height: 1.6;
 }
 
-
-/* 🔹 Top-Right UI Element (Ensures Other UI Elements Stay Above Canvas) */
+/* 🔹 Top-Right UI Element */
 .topright {
   position: absolute;
   top: 16px;
   right: 20px;
-  font-size: 18px;
+  font-size: 1.2vw;
   padding: 5px;
-  z-index: 100; /* Ensures it stays above Three.js */
+  z-index: 100;
 }
