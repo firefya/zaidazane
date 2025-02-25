@@ -93,12 +93,12 @@ a:hover {
 
 /* 🔹 Text Overlay: Centered and Responsive */
 #text-overlay {
-  position: absolute;
-  top: 70%;
+  position: fixed;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  text-align: center;
+  text-align: justify;
   color: white;
   font-size: 1.2vw; /* Adjust using viewport units */
   font-family: "Arial", sans-serif;
@@ -116,7 +116,7 @@ a:hover {
 
 #text-overlay p {
   text-align: justify;
-  font-size: 1vw;
+  font-size: 45px;
   line-height: 1.6;
 }
 
